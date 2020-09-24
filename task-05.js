@@ -1,5 +1,5 @@
-let input = document.getElementById("name-input");
-let output = document.getElementById("name-output");
+const input = document.getElementById("name-input");
+const output = document.getElementById("name-output");
 
 input.oninput = function () {
   if (input.value === "") {

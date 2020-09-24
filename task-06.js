@@ -1,21 +1,12 @@
-let inputValue = document.getElementById("validation-input");
-
-let totalLength = inputValue.getAttribute("data-length");
-let intTotallength = parseInt(totalLength, 10);
-
-inputValue.oninput = function () {
-  if (inputValue.value.length === intTotallength) {
-    inputValue.classList.remove("invalid");
-    inputValue.classList.add("valid");
+const input = document.querySelector("#validation-input");
+input.addEventListener("blur", function () {
+  const inputDataLength = Number(input.getAttribute("data-length"));
+  const inputValueLength = input.value.length;
+  if (inputDataLength === inputValueLength) {
+    input.classList.add("valid");
+    input.classList.remove("invalid");
+  } else {
+    input.classList.add("invalid");
+    input.classList.remove("valid");
   }
-  if (inputValue.value.length === 0) {
-    inputValue.classList.remove("valid");
-    inputValue.classList.remove("invalid");
-  }
-  if (
-    inputValue.value.length !== intTotallength &&
-    inputValue.value.length !== 0
-  ) {
-    inputValue.classList.add("invalid");
-  }
-};
+});
